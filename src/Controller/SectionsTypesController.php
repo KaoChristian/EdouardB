@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class GalleryController extends AbstractController
+class SectionsTypesController extends AbstractController
 {
-    #[Route('/admin/gallery', name: 'app_gallery')]
+    #[Route('/admin/sections-types', name: 'app_sections_types')]
     public function index(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        return $this->render('admin/gallery/index.html.twig', [
-            'controller_name' => 'GalleryController',
+        return $this->render('admin/sections_types/index.html.twig', [
+            'controller_name' => 'SectionsTypesController',
         ]);
     }
 }

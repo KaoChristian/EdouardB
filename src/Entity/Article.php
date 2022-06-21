@@ -13,16 +13,17 @@ class Article
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $url;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $title;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $description;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $title;
+    #[ORM\Column(type: 'string', length: 255)]
+    private $url;
 
     #[ORM\ManyToOne(targetEntity: Section::class, inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
     private $section;
 
     public function getId(): ?int
@@ -30,14 +31,14 @@ class Article
         return $this->id;
     }
 
-    public function getUrl(): ?string
+    public function getTitle(): ?string
     {
-        return $this->url;
+        return $this->title;
     }
 
-    public function setUrl(string $url): self
+    public function setTitle(?string $title): self
     {
-        $this->url = $url;
+        $this->title = $title;
 
         return $this;
     }
@@ -54,14 +55,14 @@ class Article
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getUrl(): ?string
     {
-        return $this->title;
+        return $this->url;
     }
 
-    public function setTitle(?string $title): self
+    public function setUrl(string $url): self
     {
-        $this->title = $title;
+        $this->url = $url;
 
         return $this;
     }

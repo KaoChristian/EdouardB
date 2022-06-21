@@ -21,9 +21,13 @@ class Section
     #[ORM\OneToMany(mappedBy: 'section', targetEntity: Article::class)]
     private $articles;
 
+    #[ORM\OneToMany(mappedBy: 'section', targetEntity: SectionType::class)]
+    private $sectiontypes;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->sectiontypes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +71,36 @@ class Section
             // set the owning side to null (unless already changed)
             if ($article->getSection() === $this) {
                 $article->setSection(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SectionType>
+     */
+    public function getSectiontypes(): Collection
+    {
+        return $this->sectiontypes;
+    }
+
+    public function addSectiontype(SectionType $sectiontype): self
+    {
+        if (!$this->sectiontypes->contains($sectiontype)) {
+            $this->sectiontypes[] = $sectiontype;
+            $sectiontype->setSection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSectiontype(SectionType $sectiontype): self
+    {
+        if ($this->sectiontypes->removeElement($sectiontype)) {
+            // set the owning side to null (unless already changed)
+            if ($sectiontype->getSection() === $this) {
+                $sectiontype->setSection(null);
             }
         }
 

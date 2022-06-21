@@ -6,15 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminController extends AbstractController
+#[IsGranted('ROLE_ADMIN')]
+class CarouselController extends AbstractController
 {
-    #[Route('/admin', name: 'app_admin')]
+    #[Route('/admin/carousel', name: 'app_carousel')]
     public function index(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        return $this->render('admin/home/index.html.twig', [
-            'controller_name' => 'AdminController',
+        return $this->render('admin/carousel/index.html.twig', [
+            'controller_name' => 'CarouselController',
         ]);
     }
 }

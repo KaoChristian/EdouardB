@@ -14,7 +14,6 @@
             <thead>
                 <tr>
                 <th scope="col">ID</th>
-                <th scope="col">ID catégorie</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Modifier</th>
                 </tr>
@@ -22,7 +21,6 @@
             {% for section in sections %}
                 <tr>
                     <td>{{ section.id }}</td>
-                    <td>{{ section.section_category }}</td>
                     <td>{{ section.title }}</td>
                     <td style="display: flex; gap: 5px">
                         <a

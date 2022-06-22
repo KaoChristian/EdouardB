@@ -14,7 +14,6 @@
             <thead>
                 <tr>
                 <th scope="col">ID</th>
-                <th scope="col">ID section</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Description</th>
                 <th scope="col">Fichier</th>
@@ -24,7 +23,6 @@
             {% for article in articles %}
                 <tr>
                     <td>{{ article.id }}</td>
-                    <td>{{ article.sections_id }}</td>
                     <td>{{ article.title }}</td>
                     <td>{{ article.description }}</td>
                     <td>{{ article.url }}</td>

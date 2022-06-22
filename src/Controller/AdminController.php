@@ -13,8 +13,6 @@ class AdminController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        return $this->render('admin/home/index.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
+        return $this->render('admin/home/index.html.twig');
     }
 }

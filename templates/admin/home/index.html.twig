@@ -1,8 +1,12 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-
+    <div class="container mt-5">
+        <h1>
+            Bienvenue 
+            {{ app.user.username }}
+        </h1>
+    </div>
 {% endblock %}

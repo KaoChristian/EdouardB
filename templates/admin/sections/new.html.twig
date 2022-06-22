@@ -3,11 +3,13 @@
 {% block title %}Créer une section{% endblock %}
 
 {% block body %}
-    <div class="card mt-5">
-        <div class="card-body">
-            <h2 class="text-center mb-4">Créer une section</h2>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Créer une section</h2>
 
-            {{ include('admin/_form.html.twig') }}
+                {{ include('admin/_form.html.twig') }}
+            </div>
         </div>
     </div>
 {% endblock %}

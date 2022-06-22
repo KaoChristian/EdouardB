@@ -3,41 +3,41 @@
 {% block title %}Catégories de section{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>Catégories de section</h1>
+    <div class="container mt-5">
+        <h1>Catégories de section</h1>
 
-    <a class="btn btn-primary" href="/admin/section-categories/new">
-        Créer
-    </a>
+        <a class="btn btn-primary" href="/admin/section-categories/new">
+            Créer
+        </a>
 
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Modifier</th>
-            </tr>
-        </thead>
-        {% for section_category in section_categories %}
-            <tr>
-                <td>{{ section_category.id }}</td>
-                <td>{{ section_category.name }}</td>
-                <td style="display: flex; gap: 5px">
-                    <a
-                        class="btn btn-secondary"
-                        href="{{ path('app_section_categories_edit', {'id': section_category.id}) }}"
-                    >
-                        <i class="fas fa-edit"></i>
-                    </a>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Modifier</th>
+                </tr>
+            </thead>
+            {% for section_category in section_categories %}
+                <tr>
+                    <td>{{ section_category.id }}</td>
+                    <td>{{ section_category.name }}</td>
+                    <td style="display: flex; gap: 5px">
+                        <a
+                            class="btn btn-secondary"
+                            href="{{ path('app_section_categories_edit', {'id': section_category.id}) }}"
+                        >
+                            <i class="fas fa-edit"></i>
+                        </a>
 
-                    {{ include('admin/section_categories/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucune catégorie</td>
-            </tr>
-        {% endfor %}
-    </table>
-</div>
+                        {{ include('admin/section_categories/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucune catégorie</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

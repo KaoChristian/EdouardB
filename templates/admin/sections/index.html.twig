@@ -3,43 +3,43 @@
 {% block title %}Sections{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>Sections</h1>
+    <div class="container mt-5">
+        <h1>Sections</h1>
 
-    <a class="btn btn-primary" href="/admin/sections/new">
-        Créer
-    </a>
+        <a class="btn btn-primary" href="/admin/sections/new">
+            Créer
+        </a>
 
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">ID catégorie</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Modifier</th>
-            </tr>
-        </thead>
-        {% for section in sections %}
-            <tr>
-                <td>{{ section.id }}</td>
-                <td>{{ section.section_category_id }}</td>
-                <td>{{ section.title }}</td>
-                <td style="display: flex; gap: 5px">
-                    <a
-                        class="btn btn-secondary"
-                        href="{{ path('app_sections_edit', {'id': section.id}) }}"
-                    >
-                        <i class="fas fa-edit"></i>
-                    </a>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">ID catégorie</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Modifier</th>
+                </tr>
+            </thead>
+            {% for section in sections %}
+                <tr>
+                    <td>{{ section.id }}</td>
+                    <td>{{ section.section_category_id }}</td>
+                    <td>{{ section.title }}</td>
+                    <td style="display: flex; gap: 5px">
+                        <a
+                            class="btn btn-secondary"
+                            href="{{ path('app_sections_edit', {'id': section.id}) }}"
+                        >
+                            <i class="fas fa-edit"></i>
+                        </a>
 
-                    {{ include('admin/sections/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucune section</td>
-            </tr>
-        {% endfor %}
-    </table>
-</div>
+                        {{ include('admin/sections/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucune section</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

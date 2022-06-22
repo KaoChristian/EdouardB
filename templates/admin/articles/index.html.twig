@@ -3,47 +3,47 @@
 {% block title %}Articles{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>Articles</h1>
+    <div class="container mt-5">
+        <h1>Articles</h1>
 
-    <a class="btn btn-primary" href="/admin/articles/new">
-        Créer
-    </a>
+        <a class="btn btn-primary" href="/admin/articles/new">
+            Créer
+        </a>
 
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">ID section</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Description</th>
-            <th scope="col">Fichier</th>
-            <th scope="col">Modifier</th>
-            </tr>
-        </thead>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.sections_id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.description }}</td>
-                <td>{{ article.url }}</td>
-                <td style="display: flex; gap: 5px">
-                    <a 
-                        class="btn btn-secondary"
-                        href="{{ path('app_articles_edit', {'id': article.id}) }}"
-                    >
-                        <i class="fas fa-edit"></i>
-                    </a>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">ID section</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Fichier</th>
+                <th scope="col">Modifier</th>
+                </tr>
+            </thead>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.sections_id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.description }}</td>
+                    <td>{{ article.url }}</td>
+                    <td style="display: flex; gap: 5px">
+                        <a 
+                            class="btn btn-secondary"
+                            href="{{ path('app_articles_edit', {'id': article.id}) }}"
+                        >
+                            <i class="fas fa-edit"></i>
+                        </a>
 
-                    {{ include('admin/articles/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucun article</td>
-            </tr>
-        {% endfor %}
-    </table>
-</div>
+                        {{ include('admin/articles/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun article</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

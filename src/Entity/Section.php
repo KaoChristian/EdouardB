@@ -47,14 +47,14 @@ class Section
         return $this;
     }
 
-    public function getSectionType(): ?SectionType
+    public function getSectionCategory(): ?SectionCategory
     {
-        return $this->sectionType;
+        return $this->sectionCategory;
     }
 
-    public function setSectionType(?SectionType $sectionType): self
+    public function setSectionCategory(?SectionCategory $sectionCategory): self
     {
-        $this->sectionType = $sectionType;
+        $this->sectionCategory = $sectionCategory;
 
         return $this;
     }
@@ -85,18 +85,6 @@ class Section
                 $article->setSection(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getSectionCategory(): ?SectionCategory
-    {
-        return $this->sectionCategory;
-    }
-
-    public function setSectionCategory(?SectionCategory $sectionCategory): self
-    {
-        $this->sectionCategory = $sectionCategory;
 
         return $this;
     }

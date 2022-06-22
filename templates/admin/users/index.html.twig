@@ -6,6 +6,10 @@
 <div class="container mt-5">
     <h1>Utilisateurs</h1>
 
+    <a class="btn btn-primary" href="/admin/users/new">
+        Créer
+    </a>
+
     <table class="table">
         <thead>
             <tr>
@@ -13,6 +17,7 @@
             <th scope="col">Nom d'utilisateur</th>
             <th scope="col">Email</th>
             <th scope="col">Rôles</th>
+            <th scope="col">Modifier</th>
             </tr>
         </thead>
         {% for user in users %}
@@ -21,20 +26,15 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>
+                <td style="display: flex; gap: 5px">
                     <a
                         class="btn btn-secondary"
-                        href="{{ path('app_user_edit', {'id': user.id}) }}"
+                        href="{{ path('app_users_edit', {'id': user.id}) }}"
                     >
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a
-                        class="btn btn-secondary"
-                        href="{{ path('app_user_delete', {'id': user.id}) }}"
-                    >
-                        <i class="fas fa-trash"></i>
-                    </a>
+                    {{ include('admin/users/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}

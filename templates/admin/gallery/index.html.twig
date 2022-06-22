@@ -6,31 +6,31 @@
 <div class="container mt-5">
     <h1>Images</h1>
 
+    <a class="btn btn-primary" href="/admin/gallery/new">
+        Ajouter
+    </a>
+
     <table class="table">
         <thead>
             <tr>
             <th scope="col">ID</th>
             <th scope="col">Fichier</th>
+            <th scope="col">Modifier</th>
             </tr>
         </thead>
         {% for gallery in galleries %}
             <tr>
                 <td>{{ gallery.id }}</td>
                 <td>{{ gallery.url }}</td>
-                <td>
+                <td style="display: flex; gap: 5px">
                     <a
                         class="btn btn-secondary"
-                        href="{{ path('app_user_edit', {'id': gallery.id}) }}"
+                        href="{{ path('app_gallery_edit', {'id': gallery.id}) }}"
                     >
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a
-                        class="btn btn-secondary"
-                        href="{{ path('app_user_delete', {'id': gallery.id}) }}"
-                    >
-                        <i class="fas fa-trash"></i>
-                    </a>
+                    {{ include('admin/gallery/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}

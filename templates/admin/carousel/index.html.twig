@@ -6,5 +6,44 @@
 <div class="container mt-5">
     <h1>Carousel</h1>
 
+    <a class="btn btn-primary" href="/admin/carousel/new">
+        Créer
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fichier</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Bouton</th>
+            <th scope="col">Modifier</th>
+            </tr>
+        </thead>
+        {% for carousel in carousels %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.url }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.description }}</td>
+                <td>{{ article.button }}</td>
+                <td style="display: flex; gap: 5px">
+                    <a 
+                        class="btn btn-secondary"
+                        href="{{ path('app_carousel_edit', {'id': article.id}) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                    </a>
+
+                    {{ include('admin/carousel/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune image</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% endblock %}

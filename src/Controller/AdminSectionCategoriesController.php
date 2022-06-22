@@ -10,9 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminSectionCategoryCategoriesController extends AbstractController
+class AdminSectionCategoriesController extends AbstractController
 {
-    #[Route('/admin/section_categories', name: 'app_section_categories')]
+    #[Route('/admin/section-categories', name: 'app_section_categories')]
     public function index(SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,48 +22,48 @@ class AdminSectionCategoryCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section_categories/new', name: 'app_section_categories_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, SectionCategoryRepository $sectioncategoryRepository): Response
+    #[Route('/admin/section-categories/new', name: 'app_section_categories_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, SectionCategoryRepository $sectionCategoryRepository): Response
     {
-        $section_category = new SectionCategory();
-        $form = $this->createForm(SectionCategoryType::class, $section_category);
+        $sectionCategory = new SectionCategory();
+        $form = $this->createForm(SectionCategoryType::class, $sectionCategory);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $sectioncategoryRepository->add($section_category, true);
+            $sectionCategoryRepository->add($sectionCategory, true);
 
-            return $this->redirectToRoute('app_sections', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_section_categories', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/section_categories/new.html.twig', [
-            'section_category' => $section_category,
+            'section_category' => $sectionCategory,
             'form' => $form,
         ]);
     }
 
-    #[Route('/admin/section_categories/{id}/edit', name: 'app_section_categories_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, SectionCategory $section_category, SectionCategoryRepository $sectioncategoryRepository): Response
+    #[Route('/admin/section-categories/{id}/edit', name: 'app_section_categories_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
-        $form = $this->createForm(SectionCategoryType::class, $section_category);
+        $form = $this->createForm(SectionCategoryType::class, $sectionCategory);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $sectioncategoryRepository->add($section_category, true);
+            $sectionCategoryRepository->add($sectionCategory, true);
 
-            return $this->redirectToRoute('app_sections', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_section_categories', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/section_categories/edit.html.twig', [
-            'section_category' => $section_category,
+            'section_category' => $sectionCategory,
             'form' => $form,
         ]);
     }
 
-    #[Route('/admin/section_categories/{id}', name: 'app_section_categories_delete', methods: ['POST'])]
-    public function delete(Request $request, SectionCategory $section_category, SectionCategoryRepository $sectioncategoryRepository): Response
+    #[Route('/admin/section-categories/{id}', name: 'app_section_categories_delete', methods: ['POST'])]
+    public function delete(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$section_category->getId(), $request->request->get('_token'))) {
-            $sectioncategoryRepository->remove($section_category, true);
+        if ($this->isCsrfTokenValid('delete'.$sectionCategory->getId(), $request->request->get('_token'))) {
+            $sectionCategoryRepository->remove($sectionCategory, true);
         }
 
         return $this->redirectToRoute('app_section_categories', [], Response::HTTP_SEE_OTHER);

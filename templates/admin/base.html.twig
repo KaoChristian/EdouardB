@@ -1,3 +1,5 @@
+{% set route_name = app.request.attributes.get('_route') %}
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -29,8 +31,11 @@
                     <nav class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/admin">
-                                    <span data-feather="home"></span>
+                                <a
+                                    href="/admin"
+                                    {% if route_name == "app_admin" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Accueil
                                 </a>
                             </li>
@@ -42,32 +47,47 @@
 
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/sections">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/sections"
+                                    {% if route_name == "app_sections" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Sections
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/sections-types">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/section-categories"
+                                    {% if route_name == "app_section_categories" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Types de sections
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/articles">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/articles"
+                                    {% if route_name == "app_articles" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Articles
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/gallery">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/gallery"
+                                    {% if route_name == "app_gallery" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Gallerie
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/carousel">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/carousel"
+                                    {% if route_name == "app_carousel" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Carousel
                                 </a>
                             </li>
@@ -79,14 +99,20 @@
 
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/infos">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/infos"
+                                    {% if route_name == "app_infos" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Infos
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin/users">
-                                    <span data-feather="file-text"></span>
+                                <a
+                                    href="/admin/users"
+                                    {% if route_name == "app_users" %} class="nav-link active"
+                                    {% else %} class="nav-link"
+                                    {% endif %}>
                                     Utilisateurs
                                 </a>
                             </li>

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Carousel;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,10 +13,10 @@ class CarouselType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('url')
-            ->add('title')
-            ->add('description')
-            ->add('button')
+            ->add('url', TextType::class, ['label' => 'Fichier'])
+            ->add('title', TextType::class, ['label' => 'Titre'])
+            ->add('description', TextType::class, ['label' => 'Description'])
+            ->add('button', TextType::class, ['label' => 'Bouton'])
         ;
     }
 

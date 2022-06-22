@@ -18,12 +18,12 @@ class Section
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
-    #[ORM\ManyToOne(targetEntity: SectionType::class)]
-    #[ORM\JoinColumn(nullable: false)]
-    private $sectionType;
-
     #[ORM\OneToMany(mappedBy: 'section', targetEntity: Article::class)]
     private $articles;
+
+    #[ORM\ManyToOne(targetEntity: SectionCategory::class, inversedBy: 'sections')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $sectionCategory;
 
     public function __construct()
     {
@@ -85,6 +85,18 @@ class Section
                 $article->setSection(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSectionCategory(): ?SectionCategory
+    {
+        return $this->sectionCategory;
+    }
+
+    public function setSectionCategory(?SectionCategory $sectionCategory): self
+    {
+        $this->sectionCategory = $sectionCategory;
 
         return $this;
     }

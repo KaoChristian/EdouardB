@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\SectionType;
+use App\Entity\SectionCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<SectionType>
+ * @extends ServiceEntityRepository<SectionCategory>
  *
- * @method SectionType|null find($id, $lockMode = null, $lockVersion = null)
- * @method SectionType|null findOneBy(array $criteria, array $orderBy = null)
- * @method SectionType[]    findAll()
- * @method SectionType[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method SectionCategory|null find($id, $lockMode = null, $lockVersion = null)
+ * @method SectionCategory|null findOneBy(array $criteria, array $orderBy = null)
+ * @method SectionCategory[]    findAll()
+ * @method SectionCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SectionTypeRepository extends ServiceEntityRepository
+class SectionCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, SectionType::class);
+        parent::__construct($registry, SectionCategory::class);
     }
 
-    public function add(SectionType $entity, bool $flush = false): void
+    public function add(SectionCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class SectionTypeRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(SectionType $entity, bool $flush = false): void
+    public function remove(SectionCategory $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class SectionTypeRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return SectionType[] Returns an array of SectionType objects
+//     * @return SectionCategory[] Returns an array of SectionCategory objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class SectionTypeRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?SectionType
+//    public function findOneBySomeField($value): ?SectionCategory
 //    {
 //        return $this->createQueryBuilder('s')
 //            ->andWhere('s.exampleField = :val')

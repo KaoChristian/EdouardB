@@ -13,7 +13,7 @@ class CarouselController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        return $this->render('admin/carousel/index.html.twig', [
+        return $this->render('admin/admin/carousel/index.html.twig', [
             'controller_name' => 'CarouselController',
         ]);
     }

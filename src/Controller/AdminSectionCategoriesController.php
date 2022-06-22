@@ -25,6 +25,8 @@ class AdminSectionCategoriesController extends AbstractController
     #[Route('/admin/section-categories/new', name: 'app_section_categories_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $sectionCategory = new SectionCategory();
         $form = $this->createForm(SectionCategoryType::class, $sectionCategory);
         $form->handleRequest($request);
@@ -44,6 +46,8 @@ class AdminSectionCategoriesController extends AbstractController
     #[Route('/admin/section-categories/{id}/edit', name: 'app_section_categories_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(SectionCategoryType::class, $sectionCategory);
         $form->handleRequest($request);
 
@@ -62,6 +66,8 @@ class AdminSectionCategoriesController extends AbstractController
     #[Route('/admin/section-categories/{id}', name: 'app_section_categories_delete', methods: ['POST'])]
     public function delete(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        
         if ($this->isCsrfTokenValid('delete'.$sectionCategory->getId(), $request->request->get('_token'))) {
             $sectionCategoryRepository->remove($sectionCategory, true);
         }

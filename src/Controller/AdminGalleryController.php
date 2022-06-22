@@ -22,50 +22,56 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/galleries/new', name: 'app_sections_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, GalleryRepository $sectionRepository): Response
+    #[Route('/admin/gallery/new', name: 'app_gallery_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, GalleryRepository $galleryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $gallery = new Gallery();
-        $form = $this->createForm(SectionType::class, $gallery);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $sectionRepository->add($gallery, true);
-
-            return $this->redirectToRoute('app_galleries', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('admin/galleries/new.html.twig', [
-            'gallery' => $gallery,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/admin/galleries/{id}/edit', name: 'app_sections_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
-    {
-        $form = $this->createForm(SectionType::class, $gallery);
+        $form = $this->createForm(GalleryType::class, $gallery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $galleryRepository->add($gallery, true);
 
-            return $this->redirectToRoute('app_galleries', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_gallery', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/galleries/edit.html.twig', [
+        return $this->renderForm('admin/gallery/new.html.twig', [
             'gallery' => $gallery,
             'form' => $form,
         ]);
     }
 
-    #[Route('/admin/galleries/{id}', name: 'app_sections_delete', methods: ['POST'])]
+    #[Route('/admin/gallery/{id}/edit', name: 'app_gallery_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $form = $this->createForm(GalleryType::class, $gallery);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $galleryRepository->add($gallery, true);
+
+            return $this->redirectToRoute('app_gallery', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin/gallery/edit.html.twig', [
+            'gallery' => $gallery,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/admin/gallery/{id}', name: 'app_gallery_delete', methods: ['POST'])]
     public function delete(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         if ($this->isCsrfTokenValid('delete'.$gallery->getId(), $request->request->get('_token'))) {
             $galleryRepository->remove($gallery, true);
         }
 
-        return $this->redirectToRoute('app_galleries', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_gallery', [], Response::HTTP_SEE_OTHER);
     }
 }

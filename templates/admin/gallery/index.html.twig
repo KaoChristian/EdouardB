@@ -1,20 +1,43 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Hello GalleryController!{% endblock %}
+{% block title %}Gallerie{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container mt-5">
+    <h1>Images</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fichier</th>
+            </tr>
+        </thead>
+        {% for gallery in galleries %}
+            <tr>
+                <td>{{ gallery.id }}</td>
+                <td>{{ gallery.url }}</td>
+                <td>
+                    <a
+                        class="btn btn-secondary"
+                        href="{{ path('app_user_edit', {'id': gallery.id}) }}"
+                    >
+                        <i class="fas fa-edit"></i>
+                    </a>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/brokc/dev/EdouardB/src/Controller/GalleryController.php'|file_link(0) }}">src/Controller/GalleryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/brokc/dev/EdouardB/templates/gallery/index.html.twig'|file_link(0) }}">templates/gallery/index.html.twig</a></code></li>
-    </ul>
+                    <a
+                        class="btn btn-secondary"
+                        href="{{ path('app_user_delete', {'id': gallery.id}) }}"
+                    >
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune image</td>
+            </tr>
+        {% endfor %}
+    </table>
 </div>
 {% endblock %}

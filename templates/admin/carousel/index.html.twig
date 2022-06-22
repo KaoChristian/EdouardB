@@ -23,15 +23,15 @@
         </thead>
         {% for carousel in carousels %}
             <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.url }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.description }}</td>
-                <td>{{ article.button }}</td>
+                <td>{{ carousel.id }}</td>
+                <td>{{ carousel.url }}</td>
+                <td>{{ carousel.title }}</td>
+                <td>{{ carousel.description }}</td>
+                <td>{{ carousel.button }}</td>
                 <td style="display: flex; gap: 5px">
                     <a 
                         class="btn btn-secondary"
-                        href="{{ path('app_carousel_edit', {'id': article.id}) }}"
+                        href="{{ path('app_carousel_edit', {'id': carousel.id}) }}"
                     >
                         <i class="fas fa-edit"></i>
                     </a>

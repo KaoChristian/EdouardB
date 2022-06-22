@@ -2,25 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Section;
+use App\Entity\Info;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SectionType extends AbstractType
+class InfoType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('sectionCategory')
+            ->add('address')
+            ->add('phone')
+            ->add('facebook')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Section::class,
+            'data_class' => Info::class,
         ]);
     }
 }

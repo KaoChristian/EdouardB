@@ -16,6 +16,8 @@ class SectionCategoryController extends AbstractController
     #[Route('/', name: 'app_section_category_index', methods: ['GET'])]
     public function index(SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         return $this->render('section_category/index.html.twig', [
             'section_categories' => $sectionCategoryRepository->findAll(),
         ]);
@@ -24,6 +26,8 @@ class SectionCategoryController extends AbstractController
     #[Route('/new', name: 'app_section_category_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $sectionCategory = new SectionCategory();
         $form = $this->createForm(SectionCategoryType::class, $sectionCategory);
         $form->handleRequest($request);
@@ -43,6 +47,8 @@ class SectionCategoryController extends AbstractController
     #[Route('/{id}', name: 'app_section_category_show', methods: ['GET'])]
     public function show(SectionCategory $sectionCategory): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         return $this->render('section_category/show.html.twig', [
             'section_category' => $sectionCategory,
         ]);
@@ -51,6 +57,8 @@ class SectionCategoryController extends AbstractController
     #[Route('/{id}/edit', name: 'app_section_category_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(SectionCategoryType::class, $sectionCategory);
         $form->handleRequest($request);
 
@@ -69,6 +77,8 @@ class SectionCategoryController extends AbstractController
     #[Route('/{id}', name: 'app_section_category_delete', methods: ['POST'])]
     public function delete(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         if ($this->isCsrfTokenValid('delete'.$sectionCategory->getId(), $request->request->get('_token'))) {
             $sectionCategoryRepository->remove($sectionCategory, true);
         }

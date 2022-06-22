@@ -3,8 +3,13 @@
 {% block title %}Infos{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>Infos</h1>
-
-</div>
+    {% for info in infos %}
+        <script>
+            window.location.replace('/admin/infos/1/edit');
+        </script>
+    {% else %}
+        <script>
+            window.location.replace('/admin/infos/new');
+        </script>
+    {% endfor %}
 {% endblock %}

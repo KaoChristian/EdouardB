@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminCarouselController extends AbstractController
 {
-    #[Route('/admin/carousel', name: 'app_carousel')]
+    #[Route('/admin/carousel', name: 'admin_carousel')]
     public function index(CarouselRepository $carouselRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminCarouselController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/carousel/new', name: 'app_carousel_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/carousel/new', name: 'admin_carousel_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CarouselRepository $carouselRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -34,7 +34,7 @@ class AdminCarouselController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $carouselRepository->add($carousel, true);
 
-            return $this->redirectToRoute('app_carousel', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_carousel', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/carousel/new.html.twig', [
@@ -43,7 +43,7 @@ class AdminCarouselController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/carousel/{id}/edit', name: 'app_carousel_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/carousel/{id}/edit', name: 'admin_carousel_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Carousel $carousel, CarouselRepository $carouselRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -54,7 +54,7 @@ class AdminCarouselController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $carouselRepository->add($carousel, true);
 
-            return $this->redirectToRoute('app_carousel', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_carousel', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/carousel/edit.html.twig', [
@@ -63,7 +63,7 @@ class AdminCarouselController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/carousel/{id}', name: 'app_carousel_delete', methods: ['POST'])]
+    #[Route('/admin/carousel/{id}', name: 'admin_carousel_delete', methods: ['POST'])]
     public function delete(Request $request, Carousel $carousel, CarouselRepository $carouselRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -72,6 +72,6 @@ class AdminCarouselController extends AbstractController
             $carouselRepository->remove($carousel, true);
         }
 
-        return $this->redirectToRoute('app_carousel', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_carousel', [], Response::HTTP_SEE_OTHER);
     }
 }

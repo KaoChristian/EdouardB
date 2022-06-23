@@ -13,7 +13,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AdminUsersController extends AbstractController
 {
-    #[Route('/admin/users', name: 'app_users')]
+    #[Route('/admin/users', name: 'admin_users')]
     public function index(UserRepository $userRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -23,7 +23,7 @@ class AdminUsersController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users/new', name: 'app_users_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/users/new', name: 'admin_users_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -43,7 +43,7 @@ class AdminUsersController extends AbstractController
 
             $userRepository->add($user, true);
 
-            return $this->redirectToRoute('app_users', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_users', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/users/new.html.twig', [
@@ -52,7 +52,7 @@ class AdminUsersController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users/{id}/edit', name: 'app_users_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/users/{id}/edit', name: 'admin_users_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -76,7 +76,7 @@ class AdminUsersController extends AbstractController
             
             $userRepository->add($user, true);
 
-            return $this->redirectToRoute('app_users', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_users', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/users/edit.html.twig', [
@@ -85,7 +85,7 @@ class AdminUsersController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/users/{id}', name: 'app_users_delete', methods: ['POST'])]
+    #[Route('/admin/users/{id}', name: 'admin_users_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -94,6 +94,6 @@ class AdminUsersController extends AbstractController
             $userRepository->remove($user, true);
         }
 
-        return $this->redirectToRoute('app_users', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_users', [], Response::HTTP_SEE_OTHER);
     }
 }

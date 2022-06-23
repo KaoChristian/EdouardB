@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminInfosController extends AbstractController
 {
-    #[Route('/admin/infos', name: 'app_infos')]
+    #[Route('/admin/infos', name: 'admin_infos')]
     public function index(InfoRepository $infoRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminInfosController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/infos/new', name: 'app_infos_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/infos/new', name: 'admin_infos_new', methods: ['GET', 'POST'])]
     public function new(Request $request, InfoRepository $infoRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -34,7 +34,7 @@ class AdminInfosController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $infoRepository->add($info, true);
 
-            return $this->redirectToRoute('app_infos', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_infos', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/infos/new.html.twig', [
@@ -43,7 +43,7 @@ class AdminInfosController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/infos/{id}/edit', name: 'app_infos_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/infos/{id}/edit', name: 'admin_infos_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Info $info, InfoRepository $infoRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -54,7 +54,7 @@ class AdminInfosController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $infoRepository->add($info, true);
 
-            return $this->redirectToRoute('app_infos', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_infos', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/infos/edit.html.twig', [

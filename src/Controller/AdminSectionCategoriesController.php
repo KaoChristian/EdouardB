@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminSectionCategoriesController extends AbstractController
 {
-    #[Route('/admin/section-categories', name: 'app_section_categories')]
+    #[Route('/admin/section-categories', name: 'admin_section_categories')]
     public function index(SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminSectionCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section-categories/new', name: 'app_section_categories_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/section-categories/new', name: 'admin_section_categories_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -34,7 +34,7 @@ class AdminSectionCategoriesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $sectionCategoryRepository->add($sectionCategory, true);
 
-            return $this->redirectToRoute('app_section_categories', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_section_categories', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/section_categories/new.html.twig', [
@@ -43,7 +43,7 @@ class AdminSectionCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section-categories/{id}/edit', name: 'app_section_categories_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/section-categories/{id}/edit', name: 'admin_section_categories_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -54,7 +54,7 @@ class AdminSectionCategoriesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $sectionCategoryRepository->add($sectionCategory, true);
 
-            return $this->redirectToRoute('app_section_categories', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_section_categories', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/section_categories/edit.html.twig', [
@@ -63,7 +63,7 @@ class AdminSectionCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section-categories/{id}', name: 'app_section_categories_delete', methods: ['POST'])]
+    #[Route('/admin/section-categories/{id}', name: 'admin_section_categories_delete', methods: ['POST'])]
     public function delete(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -72,6 +72,6 @@ class AdminSectionCategoriesController extends AbstractController
             $sectionCategoryRepository->remove($sectionCategory, true);
         }
 
-        return $this->redirectToRoute('app_section_categories', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_section_categories', [], Response::HTTP_SEE_OTHER);
     }
 }

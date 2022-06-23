@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminArticlesController extends AbstractController
 {
-    #[Route('/admin/articles', name: 'app_articles')]
+    #[Route('/admin/articles', name: 'admin_articles')]
     public function index(ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/new', name: 'app_articles_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/articles/new', name: 'admin_articles_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -34,7 +34,7 @@ class AdminArticlesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $articleRepository->add($article, true);
 
-            return $this->redirectToRoute('app_articles', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_articles', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/articles/new.html.twig', [
@@ -43,7 +43,7 @@ class AdminArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/{id}/edit', name: 'app_articles_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/articles/{id}/edit', name: 'admin_articles_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -54,7 +54,7 @@ class AdminArticlesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $articleRepository->add($article, true);
 
-            return $this->redirectToRoute('app_articles', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_articles', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/articles/edit.html.twig', [
@@ -63,7 +63,7 @@ class AdminArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/{id}', name: 'app_articles_delete', methods: ['POST'])]
+    #[Route('/admin/articles/{id}', name: 'admin_articles_delete', methods: ['POST'])]
     public function delete(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -72,6 +72,6 @@ class AdminArticlesController extends AbstractController
             $articleRepository->remove($article, true);
         }
 
-        return $this->redirectToRoute('app_articles', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_articles', [], Response::HTTP_SEE_OTHER);
     }
 }

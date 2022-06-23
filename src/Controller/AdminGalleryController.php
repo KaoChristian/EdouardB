@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminGalleryController extends AbstractController
 {
-    #[Route('/admin/gallery', name: 'app_gallery')]
+    #[Route('/admin/gallery', name: 'admin_gallery')]
     public function index(GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/gallery/new', name: 'app_gallery_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/gallery/new', name: 'admin_gallery_new', methods: ['GET', 'POST'])]
     public function new(Request $request, GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -34,7 +34,7 @@ class AdminGalleryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $galleryRepository->add($gallery, true);
 
-            return $this->redirectToRoute('app_gallery', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_gallery', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/gallery/new.html.twig', [
@@ -43,7 +43,7 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/gallery/{id}/edit', name: 'app_gallery_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/gallery/{id}/edit', name: 'admin_gallery_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -54,7 +54,7 @@ class AdminGalleryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $galleryRepository->add($gallery, true);
 
-            return $this->redirectToRoute('app_gallery', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_gallery', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/gallery/edit.html.twig', [
@@ -63,7 +63,7 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/gallery/{id}', name: 'app_gallery_delete', methods: ['POST'])]
+    #[Route('/admin/gallery/{id}', name: 'admin_gallery_delete', methods: ['POST'])]
     public function delete(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -72,6 +72,6 @@ class AdminGalleryController extends AbstractController
             $galleryRepository->remove($gallery, true);
         }
 
-        return $this->redirectToRoute('app_gallery', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_gallery', [], Response::HTTP_SEE_OTHER);
     }
 }

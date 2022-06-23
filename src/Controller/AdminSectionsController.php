@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminSectionsController extends AbstractController
 {
-    #[Route('/admin/sections', name: 'app_sections')]
+    #[Route('/admin/sections', name: 'admin_sections')]
     public function index(SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminSectionsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/sections/new', name: 'app_sections_new', methods: ['GET', 'POST'])]
+    #[Route('/admin/sections/new', name: 'admin_sections_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -34,7 +34,7 @@ class AdminSectionsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $sectionRepository->add($section, true);
 
-            return $this->redirectToRoute('app_sections', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_sections', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/sections/new.html.twig', [
@@ -43,7 +43,7 @@ class AdminSectionsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/sections/{id}/edit', name: 'app_sections_edit', methods: ['GET', 'POST'])]
+    #[Route('/admin/sections/{id}/edit', name: 'admin_sections_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Section $section, SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -54,7 +54,7 @@ class AdminSectionsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $sectionRepository->add($section, true);
 
-            return $this->redirectToRoute('app_sections', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_sections', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('admin/sections/edit.html.twig', [
@@ -63,7 +63,7 @@ class AdminSectionsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/sections/{id}', name: 'app_sections_delete', methods: ['POST'])]
+    #[Route('/admin/sections/{id}', name: 'admin_sections_delete', methods: ['POST'])]
     public function delete(Request $request, Section $section, SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -72,6 +72,6 @@ class AdminSectionsController extends AbstractController
             $sectionRepository->remove($section, true);
         }
 
-        return $this->redirectToRoute('app_sections', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_sections', [], Response::HTTP_SEE_OTHER);
     }
 }

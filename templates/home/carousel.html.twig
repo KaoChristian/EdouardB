@@ -1,0 +1,34 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="/styles/carousel.css">
+{% endblock %}
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for carousel in carousels %}
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{ loop.index0 }}" {% if loop.index0 == 0 %} class="active" {% endif %} aria-current="true"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for carousel in carousels %}
+            <div class="carousel-item {% if loop.index0 == 0 %} active {% endif %}">
+                <img class="w-100" src="{{ carousel.url }}" alt="{{carousel.altName}}"
+                
+                <div class="container"">
+                <div class="carousel-caption text-center">
+                    <h1>{{ carousel.title }}</h1>
+                    <p>{{ carousel.description }}</p>
+                    <p><a class="btn btn-lg btn-secondary" href="{{carousel.link}}">{{carousel.button}}</a></p>
+                </div>
+            </div>
+        {% endfor %} 
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>

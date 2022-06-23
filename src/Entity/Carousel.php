@@ -25,6 +25,12 @@ class Carousel
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $button;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $altName;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $link;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +80,30 @@ class Carousel
     public function setButton(?string $button): self
     {
         $this->button = $button;
+
+        return $this;
+    }
+
+    public function getAltName(): ?string
+    {
+        return $this->altName;
+    }
+
+    public function setAltName(?string $altName): self
+    {
+        $this->altName = $altName;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }

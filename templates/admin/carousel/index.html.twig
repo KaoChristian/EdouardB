@@ -15,9 +15,11 @@
                 <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Fichier</th>
+                <th scope="col">Nom alternatif</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Description</th>
                 <th scope="col">Bouton</th>
+                <th scope="col">Lien</th>
                 <th scope="col">Modifier</th>
                 </tr>
             </thead>
@@ -25,9 +27,11 @@
                 <tr>
                     <td>{{ carousel.id }}</td>
                     <td>{{ carousel.url }}</td>
+                    <td>{{ carousel.altName }}</td>
                     <td>{{ carousel.title }}</td>
                     <td>{{ carousel.description }}</td>
                     <td>{{ carousel.button }}</td>
+                    <td>{{ carousel.link }}</td>
                     <td style="display: flex; gap: 5px">
                         <a 
                             class="btn btn-secondary"

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\CarouselRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\InfoRepository;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

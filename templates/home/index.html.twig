@@ -7,58 +7,8 @@
 {% endblock %}
 
 {% block body %}
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="" alt="devanture">
 
-            <div class="container">
-            <div class="carousel-caption text-center">
-                <h1>Salon de coiffure à Noisy-Le-Grand</h1>
-                <p>A la recherche d'un coiffeur visagiste à Noisy le Grand ?</p>
-                <p><a class="btn btn-lg btn-danger" href="#">En savoir plus</a></p>
-            </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="" alt="intérieur du salon">
-
-            <div class="container">
-            <div class="carousel-caption">
-                <h1>Gallerie photo</h1>
-                <p>Veuillez consulter nos prestations</p>
-                <p><a class="btn btn-lg btn-danger" href="#">Gallerie</a></p>
-            </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="" alt="horaire du salon">
-
-            <div class="container">
-            <div class="carousel-caption text-end">
-                <h1>Reservation, horaire et plan</h1>
-                <p>Vous voulez reserver ?</p>
-                <p><a class="btn btn-lg btn-danger" href="#">Reserver</a></p>
-            </div>
-            </div>
-        </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
+    {% include "home/carousel.html.twig" %}
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -66,36 +16,18 @@
 
     <div class="container marketing">
 
-        <!-- START THE FEATURETTES -->
+        <hr class="featurette-divider" id="presentation">
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">EDOUARD.B<span class="text-muted"> - Qui sommes nous ?</span>
-            </h2>
-            <p class="lead">Fondée en 2014, nous sommes une équipe de coiffeur/euse visagiste spécialisé dans la beauté.
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img src="issets/img/edouardb-interior.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Présentation</title>
-
-            </svg>
-
-        </div>
-        </div>
+        {% include "home/featurettes/leftText.html.twig" %}
 
         <!-- Three columns to show the employees between 1st and 2nd featurettes -->
         <div class="row mt-5">
         <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            <img src="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-            </svg>
+            </img>
 
             <h2>Heading</h2>
             <p>Some representative placeholder content for the three columns of text below the carousel. This is the first
@@ -103,11 +35,11 @@
 
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            <img src="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-            </svg>
+            </img>
 
             <h2>Heading</h2>
             <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.
@@ -115,11 +47,11 @@
 
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            <img src="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-            </svg>
+            </img>
 
             <h2>Heading</h2>
             <p>And lastly this, the third column of representative placeholder content.</p>
@@ -132,15 +64,15 @@
         <div class="row featurette">
         <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading"><span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Situé en plein centre ville de Noisy-Le-Grand, dans la rue commerçante Pierre Brossolette, nous sommes proche des commerces et de la mairie avec une bonne accèssibilitée aux tranports en communs</p>
+            <p class="lead"></p>
         </div>
         <div class="col-md-5 order-md-1">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            <img src="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
             height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
             preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-            </svg>
+            </img>
 
         </div>
         </div>
@@ -150,17 +82,15 @@
         <div class="row featurette">
         <div class="col-md-7">
             <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-            intended to be actually read, simply here to give you a better view of what this would look like with some
-            actual content. Your content.</p>
+            <p class="lead"></p>
         </div>
         <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+            <img src="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
             height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
             preserveAspectRatio="xMidYMid slice" focusable="false">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-            </svg>
+            </img>
 
         </div>
         </div>

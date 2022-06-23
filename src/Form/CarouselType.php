@@ -14,9 +14,9 @@ class CarouselType extends AbstractType
     {
         $builder
             ->add('url', TextType::class, ['label' => 'Fichier'])
-            ->add('title', TextType::class, ['label' => 'Titre'])
-            ->add('description', TextType::class, ['label' => 'Description'])
-            ->add('button', TextType::class, ['label' => 'Bouton'])
+            ->add('title', TextType::class, ['label' => 'Titre', 'required' => false, 'empty_data' => ''])
+            ->add('description', TextType::class, ['label' => 'Description', 'required' => false, 'empty_data' => ''])
+            ->add('button', TextType::class, ['label' => 'Bouton', 'required' => false, 'empty_data' => ''])
         ;
     }
 

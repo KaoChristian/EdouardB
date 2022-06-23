@@ -19,7 +19,7 @@ class UserType extends AbstractType
         $builder
             ->add('username', TextType::class, ['label' => 'Nom d\'utilisateur'])
             ->add('roles', ChoiceType::class,  ['choices' => ['Utilisateur' => 'ROLE_USER', 'Administrateur' => 'ROLE_ADMIN'], 'label' => 'Rôles'])
-            ->add('password', PasswordType::class, ['label' => 'Mot de passe'])
+            ->add('password', PasswordType::class, ['label' => 'Mot de passe', 'required' => false, 'empty_data' => ''])
             ->add('email', EmailType::class, ['label' => 'Email'])
         ;
 
@@ -35,7 +35,6 @@ class UserType extends AbstractType
                      return [$rolesString];
                 }
         ));
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

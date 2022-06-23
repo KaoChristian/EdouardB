@@ -18,7 +18,7 @@ class AdminArticlesController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->render('admin/articles/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->findAll()
         ]);
     }
 

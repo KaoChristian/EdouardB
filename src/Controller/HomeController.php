@@ -16,8 +16,8 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'carousels' => $carouselRepository->findAll(),
-            'carousels' => $articleRepository->findAll(),
-            'carousels' => $infoRepository->findAll(),
+            'articles' => $articleRepository->findAll(),
+            'infos' => $infoRepository->findAll(),
         ]);
     }
 }

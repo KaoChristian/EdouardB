@@ -1,0 +1,61 @@
+{% for article in articles %}
+
+    {% if article.section.id == "6" %}
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">{{article.section.title}}
+                    <span class="text-muted">{{article.title}}</span>
+                </h2>
+                <p class="lead">{{article.description}}</p>
+            </div>
+            <div class="col-md-5">
+                <img src="/img/{{article.url}}.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                </img>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+    {% elseif article.section.id == "7"%}
+
+    <!-- Three columns to show the employees -->
+    
+        <div class="row mt-5">
+        {% for article in articles %}
+            {% if article.section.id == "7" %}
+                <div class="col-lg-4">
+                    <img src="/img/{{article.url}}.jpg" class="rounded-circle" width="140" height="140"></img>
+
+                    <h2>{{article.title}}</h2>
+                    <p>{{article.description}}</p>
+
+                </div><!-- /.col-lg-4 -->
+            {% endif %}
+        {% endfor %}
+        <hr class="featurette-divider">
+
+    {% elseif article.section.id == "8"%}
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">{{article.section.title}}
+                    <span class="text-muted">{{article.title}}</span>
+                </h2>
+                <p class="lead">{{article.description}}</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="/img/{{article.url}}.jpg" class="bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
+                preserveAspectRatio="xMidYMid slice" focusable="false">
+                </img>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+    {% endif %}
+
+{% endfor %}

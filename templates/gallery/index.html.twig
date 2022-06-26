@@ -14,14 +14,42 @@
 
 
         <div class="row text-center text-lg-start flex">
+
+            <!-- Loop the select the gallery table -->
+            
             {% for gallery in galleries %}
               <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
-                  <img class="img-fluid img-thumbnail" src="/img/{{gallery.url}}.jpg" alt="">
-                </a>
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img class="img-fluid img-thumbnail" src="/img/{{gallery.url}}.jpg" alt="image de gallerie">
+              </button>
+            </div>
+
+            <!-- Modal -->
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                      <img src="/img/{{gallery.url}}.jpg" alt="image de gallerie">
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             {% endfor %}
-        </div>  
+
+
+        </div>
   </div>
 </div>  
+
 {% endblock %}

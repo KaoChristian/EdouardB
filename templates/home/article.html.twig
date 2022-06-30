@@ -1,8 +1,8 @@
 {% for section in sections %}
-
+    
     {% if section.sectionCategory.id == "1" %}
         {% for article in section.articles %}
-            <div class="row featurette">
+            <section class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">{{section.title}}
                         <span class="text-muted">{{article.title}}</span>
@@ -10,12 +10,12 @@
                     <p class="lead">{{article.description}}</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="/images/{{article.url}}.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
                     preserveAspectRatio="xMidYMid slice" focusable="false">
                     </img>
                 </div>
-            </div>
+            </section>
 
         <hr class="featurette-divider">
         {% endfor %}
@@ -24,24 +24,26 @@
 
     <!-- Three columns to show the employees -->
     
-        <div class="row">
-            <h2 class="featurette-heading mb-5">{{section.title}}</h2>
-        {% for article in section.articles %}
-            {% if article.section.sectionCategory.id == "3" %}
-                <div class="col-lg-4">
-                    <img src="/images/{{article.url}}.jpg" class="rounded-circle" width="140" height="140"></img>
+        <section class="row">
+                <h2 class="featurette-heading mb-5">{{section.title}}</h2>
+            {% for article in section.articles %}
+                {% if article.section.sectionCategory.id == "3" %}
+                    <article class="col-lg-4">
+                        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="rounded-circle" width="140" height="140"></img>
 
-                    <h2>{{article.title}}</h2>
-                    <p>{{article.description}}</p>
+                        <h2>{{article.title}}</h2>
+                        <p>{{article.description}}</p>
 
-                </div><!-- /.col-lg-4 -->
-            {% endif %}
-        {% endfor %}
+                    </article><!-- /.col-lg-4 -->
+                {% endif %}
+            {% endfor %}
+        </section>
         <hr class="featurette-divider">
+
 
     {% elseif section.sectionCategory.id == "2"%}
         {% for article in section.articles %}
-        <div class="row featurette">
+        <section class="row featurette">
             <div class="col-md-7 order-md-2">
                 <h2 class="featurette-heading">{{section.title}}
                     <span class="text-muted">{{article.title}}</span>
@@ -49,12 +51,12 @@
                 <p class="lead">{{article.description}}</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img src="/images/{{article.url}}.jpg" class="featurette-image img-fluid mx-auto" width="500"
+                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="featurette-image img-fluid mx-auto" width="500"
                 height="500" role="img"
                 preserveAspectRatio="xMidYMid slice" focusable="false">
                 </img>
             </div>
-        </div>
+        </section>
         {% endfor %}
         <hr class="featurette-divider">
 

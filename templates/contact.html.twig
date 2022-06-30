@@ -2,8 +2,12 @@
 
 {% block title %}Contact{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/styles/home.css">
+{% endblock %}
+
 {% block body %}
-<section class="contact py-5 my-5" id="contact">
+<section class="contact py-5" id="contact">
     <div class="container">
         <div class="row my-5">
             <div class="col-md-12">
@@ -11,7 +15,7 @@
 
                 <hr class="mt-2 mb-5">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <div class="address">
                     <h5><i class="fas fa-map-marker"></i></h5>
                         <ul class="list-unstyled">
@@ -33,24 +37,28 @@
                         </ul>
                 </div>
                 <hr>
-                <div>
-                <!-- Mailer -->
-                {% for message in app.flashes('success') %}
-                    <div class="alert alert-success mt-4">
-                        {{message}}
-                        </div>
-                {% endfor %}
-                {{ form_start(form) }}
-                        {{ form_widget(form) }}
-                        <button class="btn btn-secondary">{{ button_label|default('Envoyer') }}</button>
-                    {{ form_end(form) }}
+                <div class="">
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.4984440044527!2d2.5498517158403096!3d48.84870490934242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e017d2bf129%3A0x4a031fb44186e69!2s216%20Rue%20Pierre%20Brossolette%2C%2093160%20Noisy-le-Grand!5e0!3m2!1sen!2sfr!4v1656111785410!5m2!1sen!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                 </div>
+               
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-4">
                 <div class="container">
-                    <div class="d-flex justify-content-center mb-5">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.4984440044527!2d2.5498517158403096!3d48.84870490934242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e017d2bf129%3A0x4a031fb44186e69!2s216%20Rue%20Pierre%20Brossolette%2C%2093160%20Noisy-le-Grand!5e0!3m2!1sen!2sfr!4v1656111785410!5m2!1sen!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div>
+                        <h1>Nous Contacter ?</h1>
+                 <!-- Mailer -->
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success mt-4">
+                                {{message}}
+                                </div>
+                        {% endfor %}
+                        {{ form_start(form) }}
+                                {{ form_widget(form) }}
+                                <button class="btn btn-secondary">{{ button_label|default('Envoyer') }}</button>
+                            {{ form_end(form) }}
                     </div>
                 </div>
             </div>

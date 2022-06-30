@@ -16,7 +16,7 @@ class AdminUsersController extends AbstractController
     #[Route('/admin/users', name: 'admin_users')]
     public function index(UserRepository $userRepository): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         return $this->render('admin/users/index.html.twig', [
             'users' => $userRepository->findAll(),
@@ -26,7 +26,7 @@ class AdminUsersController extends AbstractController
     #[Route('/admin/users/new', name: 'admin_users_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $user = new User();
 
@@ -55,7 +55,7 @@ class AdminUsersController extends AbstractController
     #[Route('/admin/users/{id}/edit', name: 'admin_users_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, User $user, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -88,7 +88,7 @@ class AdminUsersController extends AbstractController
     #[Route('/admin/users/{id}', name: 'admin_users_delete', methods: ['POST'])]
     public function delete(Request $request, User $user, UserRepository $userRepository): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
         
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $userRepository->remove($user, true);

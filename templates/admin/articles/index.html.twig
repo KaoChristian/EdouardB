@@ -18,7 +18,8 @@
                 <th scope="col">Description</th>
                 <th scope="col">Fichier</th>
                 <th scope="col">Section</th>
-                <th scope="col">Modifier</th>
+                <th scope="col">Nom d'image</th>
+                <th scope="col">Actions</th>
                 </tr>
             </thead>
             {% for article in articles %}
@@ -28,6 +29,7 @@
                     <td>{{ article.description }}</td>
                     <td>{{ article.url }}</td>
                     <td>{{ article.section.title }}</td>
+                    <td>{{ article.imageName }}</td>
                     <td style="display: flex; gap: 5px">
                         <a 
                             class="btn btn-secondary"

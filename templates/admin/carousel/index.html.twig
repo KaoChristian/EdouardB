@@ -20,7 +20,8 @@
                 <th scope="col">Description</th>
                 <th scope="col">Bouton</th>
                 <th scope="col">Lien</th>
-                <th scope="col">Modifier</th>
+                <th scope="col">Nom d'image</th>
+                <th scope="col">Actions</th>
                 </tr>
             </thead>
             {% for carousel in carousels %}
@@ -32,6 +33,7 @@
                     <td>{{ carousel.description }}</td>
                     <td>{{ carousel.button }}</td>
                     <td>{{ carousel.link }}</td>
+                    <td>{{ carousel.imageName }}</td>
                     <td style="display: flex; gap: 5px">
                         <a 
                             class="btn btn-secondary"

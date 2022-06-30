@@ -14,7 +14,15 @@
         {% for gallery in galleries %}
           <div class="col-lg-3 col-md-4 col-6">
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ gallery.id }}">
-              <img class="img-fluid img-thumbnail" src="/images/{{gallery.url}}.jpg" alt="image de gallerie">
+              {% if gallery.url != NULL %}
+
+                <img class="img-fluid img-thumbnail" src="/images/{{gallery.url}}.jpg" alt="image de gallerie">
+
+              {% elseif gallery.url == NULL %}
+
+                <img class="img-fluid img-thumbnail" src="{{ vich_uploader_asset(gallery, 'imageFile') }}" alt="image de gallerie">
+
+              {% endif %}
             </button>
           </div>
 
@@ -28,7 +36,15 @@
                 </div>
                 <div class="modal-body">
                   <div class="container-fluid">
-                    <img src="/images/{{gallery.url}}.jpg" alt="image de gallerie">
+                    {% if gallery.url != NULL %}
+
+                      <img class="img-fluid img-thumbnail" src="/images/{{gallery.url}}.jpg" alt="image de gallerie">
+
+                    {% elseif gallery.url == NULL %}
+
+                      <img class="img-fluid img-thumbnail" src="{{ vich_uploader_asset(gallery, 'imageFile') }}" alt="image de gallerie">
+
+                    {% endif %}
                   </div>
                 </div>
               </div>

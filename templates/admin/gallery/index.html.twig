@@ -15,13 +15,15 @@
                 <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Fichier</th>
-                <th scope="col">Modifier</th>
+                <th scope="col">Nom d'image</th>
+                <th scope="col">Actions</th>
                 </tr>
             </thead>
             {% for gallery in galleries %}
                 <tr>
                     <td>{{ gallery.id }}</td>
                     <td>{{ gallery.url }}</td>
+                    <td>{{ gallery.imageName }}</td>
                     <td style="display: flex; gap: 5px">
                         <a
                             class="btn btn-secondary"

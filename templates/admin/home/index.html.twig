@@ -8,5 +8,95 @@
             Bienvenue 
             {{ app.user.username }}
         </h1>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Contenu</span>
+        </h6>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center">
+                        <a
+                            href="/admin/sections"
+                            {% if route_name == "app_sections" %} class="nav-link active"
+                            {% else %} class="nav-link"
+                            {% endif %}>
+                            Sections
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center">
+                        <a
+                            href="/admin/section-categories"
+                            {% if route_name == "app_section_categories" %} class="nav-link active"
+                            {% else %} class="nav-link"
+                            {% endif %}>
+                            Types de sections
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center">
+                        <a
+                            href="/admin/articles"
+                            {% if route_name == "app_articles" %} class="nav-link active"
+                            {% else %} class="nav-link"
+                            {% endif %}>
+                            Articles
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center">
+                        <a
+                            href="/admin/gallery"
+                            {% if route_name == "app_gallery" %} class="nav-link active"
+                            {% else %} class="nav-link"
+                            {% endif %}>
+                            Gallerie
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center">
+                        <a
+                            href="/admin/carousel"
+                            {% if route_name == "app_carousel" %} class="nav-link active"
+                            {% else %} class="nav-link"
+                            {% endif %}>
+                            Carousel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        <h6 class=" d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Administration</span>
+        </h6>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 text-center">
+                    <a
+                        href="/admin/infos"
+                        {% if route_name == "app_infos" %} class="nav-link active"
+                        {% else %} class="nav-link"
+                        {% endif %}>
+                        Infos
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 text-center">
+                    <a
+                        href="/admin/users"
+                        {% if route_name == "app_users" %} class="nav-link active"
+                        {% else %} class="nav-link"
+                        {% endif %}>
+                        Utilisateurs
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -33,13 +33,18 @@
                         </ul>
                 </div>
                 <hr>
-                <div class="social">
-                <ul class="list-inline list-unstyled">
-                    <li class="list-inline-item">
-                        <a href="https://www.facebook.com/Salon-%C3%89douard-B-486966991677260/"><i class="fab fa-facebook-square"></i></a>
-                    </li>
-                </ul>
-            </div>
+                <div>
+                <!-- Mailer -->
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success mt-4">
+                        {{message}}
+                        </div>
+                {% endfor %}
+                {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <button class="btn btn-secondary">{{ button_label|default('Envoyer') }}</button>
+                    {{ form_end(form) }}
+                </div>
             </div>
 
             <div class="col-lg-5">

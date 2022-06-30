@@ -10,7 +10,7 @@
                     <p class="lead">{{article.description}}</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="/img/{{article.url}}.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    <img src="/images/{{article.url}}.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
                     preserveAspectRatio="xMidYMid slice" focusable="false">
                     </img>
@@ -24,12 +24,12 @@
 
     <!-- Three columns to show the employees -->
     
-        <div class="row mt-5">
+        <div class="row">
             <h2 class="featurette-heading mb-5">{{section.title}}</h2>
         {% for article in section.articles %}
             {% if article.section.sectionCategory.id == "3" %}
                 <div class="col-lg-4">
-                    <img src="/img/{{article.url}}.jpg" class="rounded-circle" width="140" height="140"></img>
+                    <img src="/images/{{article.url}}.jpg" class="rounded-circle" width="140" height="140"></img>
 
                     <h2>{{article.title}}</h2>
                     <p>{{article.description}}</p>
@@ -49,7 +49,7 @@
                 <p class="lead">{{article.description}}</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img src="/img/{{article.url}}.jpg" class="featurette-image img-fluid mx-auto" width="500"
+                <img src="/images/{{article.url}}.jpg" class="featurette-image img-fluid mx-auto" width="500"
                 height="500" role="img"
                 preserveAspectRatio="xMidYMid slice" focusable="false">
                 </img>

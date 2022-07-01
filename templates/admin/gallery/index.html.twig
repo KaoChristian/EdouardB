@@ -16,6 +16,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Fichier</th>
                 <th scope="col">Image Vich</th>
+                <th scope="col">Nom d'image alternatif</th>
                 <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -24,6 +25,7 @@
                     <td>{{ gallery.id }}</td>
                     <td>{{ gallery.url }}</td>
                     <td>{{ gallery.imageName }}</td>
+                    <td>{{ gallery.imgAlt }}</td>
                     <td style="display: flex; gap: 5px">
                         <a
                             class="btn btn-secondary"

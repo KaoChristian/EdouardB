@@ -22,8 +22,8 @@ class Article
     #[ORM\Column(type: 'string', length: 255)]
     private $description;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private ?string $url = null;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $url;
 
     #[ORM\ManyToOne(targetEntity: Section::class, inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
@@ -37,6 +37,9 @@ class Article
 
     #[ORM\Column(type: 'integer')]
     private ?int $imageSize = null;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $imgAlt;
 
     public function getId(): ?int
     {
@@ -72,7 +75,7 @@ class Article
         return $this->url;
     }
 
-    public function setUrl(?string $url = null): self
+    public function setUrl(?string $url ): self
     {
         $this->url = $url;
 
@@ -134,5 +137,17 @@ class Article
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getImgAlt(): ?string
+    {
+        return $this->imgAlt;
+    }
+
+    public function setImgAlt(?string $imgAlt): self
+    {
+        $this->imgAlt = $imgAlt;
+
+        return $this;
     }
 }

@@ -19,6 +19,7 @@
                 <th scope="col">Fichier</th>
                 <th scope="col">Section</th>
                 <th scope="col">Image Vich</th>
+                <th scope="col">Nom d'image alternatif</th>
                 <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                     <td>{{ article.url }}</td>
                     <td>{{ article.section.title }}</td>
                     <td>{{ article.imageName }}</td>
+                    <td>{{ article.imgAlt }}</td>
                     <td style="display: flex; gap: 5px">
                         <a 
                             class="btn btn-secondary"

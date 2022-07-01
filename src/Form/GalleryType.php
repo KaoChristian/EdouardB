@@ -20,7 +20,11 @@ class GalleryType extends AbstractType
                 ])
             ->add('imageFile', VichFileType::class, [
                 'label' => 'Insérer une image',
-                'required' => false]);
+                'required' => false])
+            ->add('imgAlt', TextType::class, [
+                'label' => "Nom d'image alternatif",
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

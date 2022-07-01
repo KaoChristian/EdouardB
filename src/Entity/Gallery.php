@@ -16,8 +16,8 @@ class Gallery
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private ?string $url = null;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $url;
 
     #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
@@ -27,6 +27,9 @@ class Gallery
 
     #[ORM\Column(type: 'integer')]
     private ?int $imageSize = null;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $imgAlt;
 
     public function getId(): ?int
     {
@@ -88,6 +91,18 @@ class Gallery
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getImgAlt(): ?string
+    {
+        return $this->imgAlt;
+    }
+
+    public function setImgAlt(?string $imgAlt): self
+    {
+        $this->imgAlt = $imgAlt;
+
+        return $this;
     }
 
 }

@@ -29,7 +29,12 @@ class ArticleType extends AbstractType
             ['class' =>  Section::class, 'choice_label' => 'title'])
             
             ->add('imageFile', VichFileType::class, 
-            ['label' => 'Insérer une image', 'required' => false]);
+            ['label' => 'Insérer une image', 'required' => false])
+            
+            ->add('imgAlt', TextType::class, [
+                'label' => "Nom d'image alternatif",
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -16,8 +16,8 @@ class Carousel
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private ?string $url = null;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $url;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $title;
@@ -53,7 +53,7 @@ class Carousel
         return $this->url;
     }
 
-    public function setUrl(?string $url = null): self
+    public function setUrl(?string $url): self
     {
         $this->url = $url;
 

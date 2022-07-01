@@ -20,11 +20,11 @@
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-{{ gallery.id }}">
               {% if gallery.url != NULL %}
 
-                <img class="img-fluid img-thumbnail" src="/images/{{gallery.url}}.jpg" alt="image de gallerie">
+                <img class="img-fluid img-thumbnail" src="/images/{{gallery.url}}.jpg">
 
               {% elseif gallery.url == NULL %}
 
-                <img class="img-fluid img-thumbnail" src="{{ vich_uploader_asset(gallery, 'imageFile') }}" alt="image de gallerie">
+                <img class="img-fluid img-thumbnail" src="{{ vich_uploader_asset(gallery, 'imageFile') }}">
 
               {% endif %}
             </button>
@@ -57,6 +57,10 @@
         {% endfor %}
     </div>
   </div>
+
+  <hr class="featurette-divider">
+
 </div>  
+
 
 {% endblock %}

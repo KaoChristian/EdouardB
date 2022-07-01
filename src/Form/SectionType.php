@@ -15,9 +15,12 @@ class SectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', TextType::class, ['label' => 'Titre'])
-            ->add('sectionCategory', EntityType::class, ['class' =>  SectionCategory::class, 'choice_label' => 'name'])
-        ;
+            ->add('title', TextType::class, 
+            ['label' => 'Titre'])
+
+            ->add('sectionCategory', EntityType::class, 
+            ['class' =>  SectionCategory::class, 
+            'choice_label' => 'name']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

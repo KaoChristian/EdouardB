@@ -15,13 +15,12 @@ class GalleryType extends AbstractType
     {
         $builder
             ->add('url', TextType::class, [
-                'label' => 'Nom du fichier',
+                'label' => 'URL alternatif',
                 'required' => false,
                 ])
             ->add('imageFile', VichFileType::class, [
                 'label' => 'Insérer une image',
-                'required' => false,
-            ]);
+                'required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

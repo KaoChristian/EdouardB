@@ -14,26 +14,37 @@ class CarouselType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('url', TextType::class, ['label' => 'Fichier','required' => false,])
+            ->add('url', TextType::class, 
+            ['label' => 'URL alternatif', 
+            'required' => false,])
 
             ->add('altName', TextType::class, 
-            ['label' => 'Nom alternatif', 'required' => false, 'empty_data' => ''])
+            ['label' => 'Nom alternatif', 
+            'required' => false, 
+            'empty_data' => ''])
 
             ->add('title', TextType::class, 
-            ['label' => 'Titre', 'required' => false, 'empty_data' => ''])
+            ['label' => 'Titre', 
+            'required' => false, 
+            'empty_data' => ''])
 
             ->add('description', TextType::class, 
-            ['label' => 'Description', 'required' => false, 'empty_data' => ''])
+            ['label' => 'Description', 
+            'required' => false, 
+            'empty_data' => ''])
 
             ->add('button', TextType::class, 
-            ['label' => 'Bouton', 'required' => false, 'empty_data' => ''])
+            ['label' => 'Bouton', 
+            'required' => false, 
+            'empty_data' => ''])
 
             ->add('link', TextType::class, 
-            ['label' => 'Lien', 'required' => false, 'empty_data' => ''])
-            ->add('imageFile', VichFileType::class, [
-                'label' => 'Insérer une image',
-                'required' => false,
-            ]);
+            ['label' => 'Lien', 'required' => false, 
+            'empty_data' => ''])
+
+            ->add('imageFile', VichFileType::class, 
+            ['label' => 'Insérer une image',
+            'required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

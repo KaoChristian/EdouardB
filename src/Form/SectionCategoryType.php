@@ -13,8 +13,8 @@ class SectionCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'Adresse'])
-        ;
+            ->add('name', TextType::class, 
+            ['label' => 'Adresse']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

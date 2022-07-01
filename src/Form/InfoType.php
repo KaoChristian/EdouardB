@@ -14,10 +14,14 @@ class InfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('address', TextType::class, ['label' => 'Adresse'])
-            ->add('phone', TelType::class, ['label' => 'Téléphone'])
-            ->add('facebook', TextType::class, ['label' => 'Facebook'])
-        ;
+            ->add('address', TextType::class, 
+            ['label' => 'Adresse'])
+
+            ->add('phone', TelType::class, 
+            ['label' => 'Téléphone'])
+
+            ->add('facebook', TextType::class, 
+            ['label' => 'Facebook']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -23,14 +23,13 @@ class ArticleType extends AbstractType
             ['label' => 'Description'])
 
             ->add('url', TextType::class, 
-            ['label' => 'Fichier', 'required' => false,])
+            ['label' => 'URL alternatif', 'required' => false,])
 
             ->add('section', EntityType::class, 
             ['class' =>  Section::class, 'choice_label' => 'title'])
             
             ->add('imageFile', VichFileType::class, 
-            ['label' => 'Insérer une image', 'required' => false,
-            ]);
+            ['label' => 'Insérer une image', 'required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

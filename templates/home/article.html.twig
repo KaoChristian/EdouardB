@@ -10,9 +10,8 @@
                     <p class="lead">{{article.description}}</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <img src="{{ vich_uploader_asset(article, 'imageFile') }}" loading="lazy" class="featurette-image img-fluid mx-auto" width="500"
+                    height="500">
                     </img>
                 </div>
             </section>
@@ -29,7 +28,7 @@
             {% for article in section.articles %}
                 {% if article.section.sectionCategory.id == "3" %}
                     <article class="col-lg-4">
-                        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="rounded-circle" width="140" height="140"></img>
+                        <img src="{{ vich_uploader_asset(article, 'imageFile') }}" loading="lazy" class="rounded-circle" width="140" height="140"></img>
 
                         <h2>{{article.title}}</h2>
                         <p>{{article.description}}</p>
@@ -51,7 +50,7 @@
                 <p class="lead">{{article.description}}</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" class="featurette-image img-fluid mx-auto" width="500"
+                <img src="{{ vich_uploader_asset(article, 'imageFile') }}" loading="lazy" class="featurette-image img-fluid mx-auto" width="500"
                 height="500" role="img"
                 preserveAspectRatio="xMidYMid slice" focusable="false">
                 </img>

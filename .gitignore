@@ -8,7 +8,7 @@
 /var/
 /vendor/
 /public/images
-!/public/imaages/logo.png
+!/public/images/logo.png
 !/public/images/favicon.png
 ###< symfony/framework-bundle ###
 

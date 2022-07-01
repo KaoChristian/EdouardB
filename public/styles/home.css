@@ -85,6 +85,8 @@ h1 h2 h3 h4 h5 h6 {
 }
 
 
+
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -105,4 +107,16 @@ h1 h2 h3 h4 h5 h6 {
   .featurette-heading {
     margin-top: 7rem;
   }
+  
+}
+
+@media (max-width: 992px) {
+
+  #infos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
 }

@@ -15,40 +15,10 @@
 
                 <hr class="mt-2 mb-5">
             </div>
-            <article class="col-lg-5">
-                <div class="address">
-                    <h5><i class="fas fa-map-marker"></i></h5>
-                        <ul class="list-unstyled">
-                            <li> 216 Rue Pierre Brossolette</li>
-                            <li> 93160 Noisy-le-Grand</li>
-                        </ul>
-                </div>
-                <div class="email">
-                    <h5><i class="fas fa-at"></i></h5>
-                        <ul class="list-unstyled">
-                            <li> info@email.com</li>
-                        </ul>
-                </div>
-                <div class="phone">
-                    <h5><i class="fas fa-phone"></i></h5>
-                        <ul class="list-unstyled">                            
-                            <li class="text-lg-start">  Réservez en appelant le numéro ci dessous  </li>
-                            <li class="text-lg-start"><strong> 01 43 03 33 40 </strong></li>
-                        </ul>
-                </div>
-                <hr>
-                <div class="">
-                    
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.4984440044527!2d2.5498517158403096!3d48.84870490934242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e017d2bf129%3A0x4a031fb44186e69!2s216%20Rue%20Pierre%20Brossolette%2C%2093160%20Noisy-le-Grand!5e0!3m2!1sen!2sfr!4v1656111785410!5m2!1sen!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                </div>
-               
-            </article>
-
-            <article class="col-lg-4">
+            <article class="col-lg-4 mb-5">
                 <div class="container">
                     <div>
-                        <h2>Nous Contacter ?</h2>
+                        <h2>Nous Contacter</h2>
                  <!-- Mailer -->
                         {% for message in app.flashes('success') %}
                             <div class="alert alert-success mt-4">
@@ -61,6 +31,37 @@
                             {{ form_end(form) }}
                     </div>
                 </div>
+            </article>
+
+            <article class="col-lg-5 mb-5" id="infos">
+                <div class="address">
+                    <h5>
+                        <i class="fas fa-map-marker"></i>
+                        <span>216 Rue Pierre Brossolette</span>
+                    </h5>
+                        <p><span class="ms-4">93160 Noisy-le-Grand</span></p>    
+                </div>
+                <div class="email">
+                    <h5>
+                        <i class="fas fa-at"></i>
+                        <span>contact@edouardb.com</span>
+                    </h5>
+                        
+                </div>
+                <div class="phone my-3">
+                    <h5>
+                        <i class="fas fa-phone"></i>
+                        <span class="text-lg-start"><strong><a href="tel:0143033340"> 01 43 03 33 40</a></strong></span>
+                    </h5>                         
+                        <p><strong>Réservez en appelant le numéro ci dessous</strong></p>        
+                </div>
+                <hr>
+                <div class="my-5">
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.4984440044527!2d2.5498517158403096!3d48.84870490934242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e017d2bf129%3A0x4a031fb44186e69!2s216%20Rue%20Pierre%20Brossolette%2C%2093160%20Noisy-le-Grand!5e0!3m2!1sen!2sfr!4v1656111785410!5m2!1sen!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
+                
             </article>
 
 

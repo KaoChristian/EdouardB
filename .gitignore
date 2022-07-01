@@ -8,6 +8,8 @@
 /var/
 /vendor/
 /public/images
+!/public/imaages/logo.png
+!/public/images/favicon.png
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

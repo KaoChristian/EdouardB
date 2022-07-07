@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminSectionsController extends AbstractController
 {
-    #[Route('/admin/sections', name: 'admin_sections')]
+    #[Route('/admincarbonelampe/sections', name: 'admin_sections')]
     public function index(SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminSectionsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/sections/new', name: 'admin_sections_new', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/sections/new', name: 'admin_sections_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -43,7 +43,7 @@ class AdminSectionsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/sections/{id}/edit', name: 'admin_sections_edit', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/sections/{id}/edit', name: 'admin_sections_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Section $section, SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -63,7 +63,7 @@ class AdminSectionsController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/sections/{id}', name: 'admin_sections_delete', methods: ['POST'])]
+    #[Route('/admincarbonelampe/sections/{id}', name: 'admin_sections_delete', methods: ['POST'])]
     public function delete(Request $request, Section $section, SectionRepository $sectionRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

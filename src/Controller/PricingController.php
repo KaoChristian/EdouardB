@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PricingController extends AbstractController
 {
-    #[Route('/pricing', name: 'app_pricing')]
+    #[Route('/tarifs', name: 'app_pricing')]
     public function index(InfoRepository $infoRepository): Response
     {
         return $this->render('pricing.html.twig', [

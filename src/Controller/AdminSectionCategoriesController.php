@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminSectionCategoriesController extends AbstractController
 {
-    #[Route('/admin/section-categories', name: 'admin_section_categories')]
+    #[Route('/admincarbonelampe/section-categories', name: 'admin_section_categories')]
     public function index(SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -22,7 +22,7 @@ class AdminSectionCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section-categories/new', name: 'admin_section_categories_new', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/section-categories/new', name: 'admin_section_categories_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -43,7 +43,7 @@ class AdminSectionCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section-categories/{id}/edit', name: 'admin_section_categories_edit', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/section-categories/{id}/edit', name: 'admin_section_categories_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -63,7 +63,7 @@ class AdminSectionCategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/section-categories/{id}', name: 'admin_section_categories_delete', methods: ['POST'])]
+    #[Route('/admincarbonelampe/section-categories/{id}', name: 'admin_section_categories_delete', methods: ['POST'])]
     public function delete(Request $request, SectionCategory $sectionCategory, SectionCategoryRepository $sectionCategoryRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');

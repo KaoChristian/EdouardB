@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminArticlesController extends AbstractController
 {
-    #[Route('/admin/articles', name: 'admin_articles')]
+    #[Route('/admincarbonelampe/articles', name: 'admin_articles')]
     public function index(ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/new', name: 'admin_articles_new', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/articles/new', name: 'admin_articles_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -43,7 +43,7 @@ class AdminArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/{id}/edit', name: 'admin_articles_edit', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/articles/{id}/edit', name: 'admin_articles_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -63,7 +63,7 @@ class AdminArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/articles/{id}', name: 'admin_articles_delete', methods: ['POST'])]
+    #[Route('/admincarbonelampe/articles/{id}', name: 'admin_articles_delete', methods: ['POST'])]
     public function delete(Request $request, Article $article, ArticleRepository $articleRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

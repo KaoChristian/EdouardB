@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminInfosController extends AbstractController
 {
-    #[Route('/admin/infos', name: 'admin_infos')]
+    #[Route('/admincarbonelampe/infos', name: 'admin_infos')]
     public function index(InfoRepository $infoRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminInfosController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/infos/new', name: 'admin_infos_new', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/infos/new', name: 'admin_infos_new', methods: ['GET', 'POST'])]
     public function new(Request $request, InfoRepository $infoRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -43,7 +43,7 @@ class AdminInfosController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/infos/{id}/edit', name: 'admin_infos_edit', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/infos/{id}/edit', name: 'admin_infos_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Info $info, InfoRepository $infoRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

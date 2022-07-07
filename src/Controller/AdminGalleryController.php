@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminGalleryController extends AbstractController
 {
-    #[Route('/admin/gallery', name: 'admin_gallery')]
+    #[Route('/admincarbonelampe/gallery', name: 'admin_gallery')]
     public function index(GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -22,7 +22,7 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/gallery/new', name: 'admin_gallery_new', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/gallery/new', name: 'admin_gallery_new', methods: ['GET', 'POST'])]
     public function new(Request $request, GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -43,7 +43,7 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/gallery/{id}/edit', name: 'admin_gallery_edit', methods: ['GET', 'POST'])]
+    #[Route('/admincarbonelampe/gallery/{id}/edit', name: 'admin_gallery_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
@@ -63,7 +63,7 @@ class AdminGalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/gallery/{id}', name: 'admin_gallery_delete', methods: ['POST'])]
+    #[Route('/admincarbonelampe/gallery/{id}', name: 'admin_gallery_delete', methods: ['POST'])]
     public function delete(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

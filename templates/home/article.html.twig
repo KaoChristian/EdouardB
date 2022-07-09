@@ -3,18 +3,14 @@
     {% if section.sectionCategory.id == "1" %}
         {% for article in section.articles %}
             <section class="row featurette">
-                <div class="col-md-7" 
-                    data-aos="fade-right" 
-                    data-aos-duration="1000">
+                <div class="col-md-7">
 
                     <h2 class="featurette-heading">{{section.title}}
                         <span class="text-muted">{{article.title}}</span>
                     </h2>
                     <p class="lead">{{article.description}}</p>
                 </div>
-                <div class="col-md-5" 
-                    data-aos="fade-left" 
-                    data-aos-duration="1000">
+                <div class="col-md-5" >
 
                     <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{article.imgAlt}}"
                      loading="lazy" class="featurette-image img-fluid mx-auto" width="500" height="500">
@@ -50,20 +46,14 @@
     {% elseif section.sectionCategory.id == "2"%}
         {% for article in section.articles %}
         <section class="row featurette">
-            <div class="col-md-7 order-md-2" 
-                data-aos="zoom-in-up" 
-                data-aos-duration="1000" 
-                data-aos-anchor-placement="top-bottom">
+            <div class="col-md-7 order-md-2" >
 
                 <h2 class="featurette-heading">{{section.title}}
                     <span class="text-muted">{{article.title}}</span>
                 </h2>
                 <p class="lead">{{article.description}}</p>
             </div>
-            <div class="col-md-5 order-md-1" 
-                data-aos="zoom-in-down" 
-                data-aos-duration="1500" 
-                data-aos-anchor-placement="top-bottom">
+            <div class="col-md-5 order-md-1" >
                 
                 <img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{article.imgAlt}}"
                  loading="lazy" class="featurette-image img-fluid mx-auto" width="500" height="500">
